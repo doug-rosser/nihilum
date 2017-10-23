@@ -1,3 +1,3 @@
 function nihilum::sqroot(Integer $num) >> Integer {
-  $num
+  nihilum::rec_sqroot(1, $num)
 }
