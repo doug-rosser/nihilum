@@ -8,7 +8,7 @@
 #   include nihilum::hello
 class nihilum::hello {
 
-  $timestamp = generate('/bin/date', '+%x')
+  $timestamp = generate('/bin/date', '+%s')
 
   notify { 'hello':
     message => "Hello, World it's ${timestamp}!",
