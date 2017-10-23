@@ -7,7 +7,10 @@
 # @example
 #   include nihilum::hello
 class nihilum::hello {
+
+  $timestamp = generate('/bin/date', '+%x')
+
   notify { 'hello':
-    message => "Hello, World!",
+    message => "Hello, World it's ${timestamp}!",
   }
 }
