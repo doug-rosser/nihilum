@@ -9,8 +9,11 @@
 class nihilum::hello {
 
   $timestamp = generate('/bin/date', '+%s')
+  $line      = inline_template('<%= @timestamp.chomp %>')
+  $time_int  = $line + 0
+  $sqrt      = nihilum::sqroot($time_int)
 
   notify { 'hello':
-    message => "Hello, World it's ${timestamp}!",
+    message => "Hello, World it's ${sqrt}!",
   }
 }
