@@ -17,7 +17,37 @@ class nihilum::hello {
   $nxt2_int  = $time_int / 4
   $n2sqrt    = nihilum::sqroot($nxt2_int)
 
+  $ts1       = generate('/bin/date', '+%s')
+  $ln1       = inline_template('<%= @timestamp.chomp %>')
+  $ti1       = $line + 1
+  $rnd1      = fqdn_rand(1000000000, $ti1)
+  $sqr1      = nihilum::sqroot($rnd1)
+
+  $ts2       = generate('/bin/date', '+%s')
+  $ln2       = inline_template('<%= @timestamp.chomp %>')
+  $ti2       = $line + 10
+  $rnd2      = fqdn_rand(10000000000, $ti2)
+  $sqr2      = nihilum::sqroot($rnd2)
+
+  $ts3       = generate('/bin/date', '+%s')
+  $ln3       = inline_template('<%= @timestamp.chomp %>')
+  $ti3       = $line + 100
+  $rnd3      = fqdn_rand(100000000000, $ti3)
+  $sqr3      = nihilum::sqroot($rnd3)
+
+  $ts4       = generate('/bin/date', '+%s')
+  $ln4       = inline_template('<%= @timestamp.chomp %>')
+  $ti4       = $line + 1000
+  $rnd4      = fqdn_rand(1000000000000, $ti4)
+  $sqr4      = nihilum::sqroot($rnd4)
+
+  $ts5       = generate('/bin/date', '+%s')
+  $ln5       = inline_template('<%= @timestamp.chomp %>')
+  $ti5       = $line + 10000
+  $rnd5      = fqdn_rand(10000000000000, $ti5)
+  $sqr5      = nihilum::sqroot($rnd5)
+
   notify { 'hello':
-    message => "Seconds from epoch: ${time_int}, ${sqrt}, ${n1sqrt}, ${n2sqrt}",
+    message => "Seconds from epoch: ${time_int}, ${sqrt}, ${n1sqrt}, ${n2sqrt}, ${sqr1}, ${sqr2}, ${sqr3}, ${sqr4}, ${sqr5}",
   }
 }
