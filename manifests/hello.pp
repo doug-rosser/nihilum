@@ -47,6 +47,24 @@ class nihilum::hello {
   $rnd5      = fqdn_rand(100000000000, $ti5)
   $sqr5      = nihilum::sqroot($rnd5)
 
+  $ts6       = generate('/bin/date', '+%s')
+  $ln6       = inline_template('<%= @timestamp.chomp %>')
+  $ti6       = $line / 9
+  $rnd6      = fqdn_rand(10000000, $ti6)
+  $sqr6      = nihilum::sqroot($rnd6)
+
+  $ts7       = generate('/bin/date', '+%s')
+  $ln7       = inline_template('<%= @timestamp.chomp %>')
+  $ti7       = $line / 99
+  $rnd7      = fqdn_rand(10000000, $ti7)
+  $sqr7      = nihilum::sqroot($rnd7)
+
+  $ts8       = generate('/bin/date', '+%s')
+  $ln8       = inline_template('<%= @timestamp.chomp %>')
+  $ti8       = $line / 999
+  $rnd8      = fqdn_rand(10000000, $ti8)
+  $sqr8      = nihilum::sqroot($rnd8)
+
   notify { 'hello':
     message => "Seconds from epoch: ${time_int}, ${sqrt}, ${n1sqrt}, ${n2sqrt}, ${sqr1}, ${sqr2}, ${sqr3}, ${sqr4}, ${sqr5}",
   }
